@@ -1,0 +1,34 @@
+<html lang="en" data-theme="corporate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet">
+    <title>IoMT</title>
+</head>
+<body>
+    <div class="navbar bg-primary text-primary-content">
+        <a href="/"><button class="btn btn-ghost text-xl">IoMT</button></a>
+    </div>
+
+    <div class="flex items-center justify-center min-h-screen bg-gray-100">
+        <form method="POST" class="bg-white p-6 rounded-lg shadow-md w-96">
+            <h2 class="text-2xl font-bold mb-6 text-center">Opret</h2>
+            <div class="mb-4">
+                <input type="text" name="username" placeholder="Brugernavn" required
+                    class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <input type="password" name="password" placeholder="Kodeord" required
+                    class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <button type="submit"
+                class="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition duration-200">
+                Sign Up
+            </button>
+        </form>
+    </div>
+    
+    
+    
+</body>
+</html>

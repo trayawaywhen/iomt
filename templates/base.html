@@ -1,0 +1,43 @@
+<html lang="en" data-theme="corporate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet">
+    <title>IoMT</title>
+</head>
+<body>
+    <div class="navbar bg-primary text-primary-content">
+        <a href="/"><button class="btn btn-ghost text-xl">IoMT</button></a>
+    </div>
+
+    <div id="sidebar" class="flex h-screen">
+        <div>
+            <ul class="menu bg-base-200 rounded-box w-56 h-full">
+                <li><a href="/">Hjem</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/residents">Beboere</a></li>
+                <li>
+                    <ul>
+                        {% for resident in residents %}
+                      <li><a href="{{ url_for('resident_profile', user_id=resident.id) }}">{{resident.username}}</a></li>
+                      {% endfor %}
+                    </ul>
+                </li>
+                <li><a href="/admin">Admin</a></li>
+            </ul>
+        </div>
+    
+        <div class="flex-1">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+    <footer class="footer footer-center bg-base-300 text-base-content p-4">
+        <aside>
+          <p>Copyright © 2024 - All rights reserved</p>
+        </aside>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+
+    <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <form method="POST" action="{{ url_for('add_user') }}" class="bg-white p-6 rounded-lg shadow-md w-96">
+            <h1 class="text-2xl font-bold mb-6 text-center">Tilføj en pårørende</h1>
+            <div class="mb-4">
+                <input type="text" name="username" placeholder="Brugernavn" required
+                    class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <input type="password" name="password" placeholder="Kodeord" required
+                    class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <button type="submit"
+                class="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition duration-200">
+                Add User
+            </button>
+        </form>
+
+
+
+        <form method="POST" action="{{ url_for('add_resident') }}" class="bg-white p-6 rounded-lg shadow-md w-96">
+            <h2 class="text-2xl font-bold mb-6 text-center">Tilføj ny beboer</h2>
+            <div class="mb-4">
+                <input type="text" name="username" placeholder="Navn" required
+                    class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <button type="submit"
+                class="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition duration-200">
+                Add Resident
+            </button>
+        </form>
+        
+    </div>
+
+
+
+    
+{% endblock %}

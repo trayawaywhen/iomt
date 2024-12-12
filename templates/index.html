@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- <div class="text-center m-4 p-4">
+    <h1 class="text-5xl font-bold text-primary m-2 mb-2">Home</h1>
+</div> -->
+
+<!-- <p>Welcome, {{ current_user.username }}!</p>
+<a href="{{ url_for('logout') }}">Logout</a> -->
+
+
+<div class="hero bg-base-200 min-h-screen">
+    <div class="hero-content text-center">
+      <div class="max-w-md">
+        <h1 class="text-5xl font-bold">Velkommen {{ current_user.username }}!</h1>
+        <p class="py-6">
+          Her kan du holde øje med dine kære
+        </p>
+        <a href="{{ url_for('logout') }}"><button class="btn btn-primary">Logout</button></a>
+      </div>
+    </div>
+</div>
+
+{% endblock %}

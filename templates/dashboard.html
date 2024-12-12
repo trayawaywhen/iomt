@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center m-4 p-4">
+    <h1 class="text-5xl font-bold text-primary m-2 mb-2">Dashboard</h1>
+</div>
+
+<div class="flex">
+    <div class="flex flex-col items-center">
+        <div class="stats bg-primary text-primary-content m-4">
+            <div class="stat">
+                <div class="stat-title">Antal fald seneste uge</div>
+                <div class="stat-value">1</div>
+            </div>
+        
+            <div class="stat">
+                <div class="stat-title">Antal fald i alt</div>
+                <div class="stat-value">5</div>
+            </div>
+        </div>
+
+        <div class="m-4">
+            <img src='data:image/png;base64,{{ data }}' alt="Graf">
+        </div>
+    </div>
+
+    <div class="flex flex-col items-center">
+        <div class="stats bg-primary text-primary-content m-4">
+            <div class="stat">
+                <div class="stat-title">Antal fald seneste uge</div>
+                <div class="stat-value">1</div>
+            </div>
+        
+            <div class="stat">
+                <div class="stat-title">Antal fald i alt</div>
+                <div class="stat-value">5</div>
+            </div>
+        </div>
+
+        <div class="m-4">
+            <img src='data:image/png;base64,{{ data }}' alt="Graf">
+        </div>
+    </div>
+</div>
+
+{% endblock %}
