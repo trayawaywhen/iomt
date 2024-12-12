@@ -1,4 +1,5 @@
 from graphs import graph
+from mqtt_subscribe import get_rpi_data
 
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_sqlalchemy import SQLAlchemy
