@@ -1,5 +1,4 @@
 from graphs import graph
-from mqtt_subscribe import get_rpi_data
 
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_sqlalchemy import SQLAlchemy
@@ -143,4 +142,4 @@ def resident_profile(user_id):
 ##############################
 # Run
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')

@@ -1,0 +1,22 @@
+<html lang="en" data-theme="cyberpunk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet">
+    <title>IoMT</title>
+</head>
+<body>
+    <div class="navbar bg-primary text-primary-content">
+        <a href="/"><button class="btn btn-ghost text-xl">IoMT</button></a>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="footer footer-center bg-base-300 text-base-content p-4">
+        <aside>
+          <p>Copyright © 2024 - All rights reserved</p>
+        </aside>
+    </footer>
+</body>
+</html>

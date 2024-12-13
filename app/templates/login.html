@@ -1,17 +1,11 @@
-<html lang="en" data-theme="corporate">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet">
-    <title>IoMT</title>
-</head>
-<body>
-    <div class="navbar bg-primary text-primary-content">
-        <a href="/"><button class="btn btn-ghost text-xl">IoMT</button></a>
-    </div>
+{% extends 'base_front.html' %}
 
-    <div class="flex items-center justify-center min-h-screen bg-gray-100">
-        <div class="bg-white p-6 rounded-lg shadow-md w-96">
+{% block content %}
+
+   
+
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="p-6 rounded-lg shadow-md w-96">
             <form method="POST">
                 <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
                 <div class="mb-4">
@@ -37,5 +31,4 @@
     </div>
     
     
-</body>
-</html>
+{% endblock %}
