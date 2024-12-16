@@ -5,16 +5,17 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash
 
+
 ##############################
-# Config
+# Configuration
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'hsgfd7sdfgbjsdf56dsf89adsgdfbjgh5'
+app.config['SECRET_KEY'] = 'dfjblsdfsdbfjlkasdfhjlbd'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
-# User model
+# User models
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), unique=True, nullable=False)
@@ -24,14 +25,13 @@ class User(db.Model, UserMixin):
 class Residents(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), unique=True, nullable=False)
-    
-# Create database
-with app.app_context():
-    db.create_all()
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
+with app.app_context():
+    db.create_all()
 
 ##############################
 # Routes
@@ -136,7 +136,6 @@ def resident_profile(user_id):
     resident = Residents.query.get_or_404(user_id)  # Fetch the user or return a 404 if not found
     residents = Residents.query.all()
     return render_template('resident_profile.html', resident=resident, residents = residents)
-
 
 
 ##############################
