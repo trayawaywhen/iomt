@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  flask_app:
+    build:
+      context: ../iomt
+    ports:
+      - "8000:8000"  # Expose the Gunicorn port for debugging if needed
+
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - "80:80"  # Expose NGINX on port 80
+    depends_on:
+      - flask_app

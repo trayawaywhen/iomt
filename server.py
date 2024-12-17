@@ -14,7 +14,7 @@ data_to_insert = {
 
 def extract_from_broker():
     try:
-        messsage = subscribe.simple("paho/test/topic", hostname="51.138.188.250")
+        messsage = subscribe.simple("paho/test/topic", hostname="192.168.1.100")
         result = json.loads(message.payload.decode())
         return result
     except Exception:
