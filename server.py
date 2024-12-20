@@ -1,32 +1,37 @@
 import json
-from models import Session, JsonData
+from models import Session, SensorData
+import paho.mqtt.subscribe as subscribe
+import paho.mqtt.publish as publish
+from time import sleep
 
 # Create a session
 session = Session()
 
-# Example JSON data
-data_to_insert = {
-    "name": "John Doe",
-    "age": 30,
-    "city": "New York"
-}
 
+while True:
+    print("Waiting for fall...")
+    message = subscribe.simple("sensor/data", hostname="192.168.1.100")
+    result = json.loads(message.payload.decode())
 
-def extract_from_broker():
-    try:
-        messsage = subscribe.simple("paho/test/topic", hostname="192.168.1.100")
-        result = json.loads(message.payload.decode())
-        return result
-    except Exception:
-        return Exception
+    if result != None:
+        fall = result['fall']
+        temperature = result['temperature']
+        resident = result["resident"]
 
+        # Create a new JsonData instance
+        sensor_data = SensorData(fall=fall, temperature=temperature, resident=resident)
 
-# Create a new JsonData instance
-json_data = JsonData(data=data_to_insert)
+        # Add and commit the new data
+        session.add(sensor_data)
+        session.commit()
+        session.close()
 
-# Add and commit the new data
-session.add(json_data)
-session.commit()
-session.close()
+        payload = fall
+        payload_string = str(payload)
 
-print("Data inserted successfully.")
+        publish.single("alarm/data", payload_string, hostname="192.168.1.100")
+
+        print("Done deal")
+
+        sleep(12)
+
